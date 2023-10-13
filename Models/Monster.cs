@@ -17,5 +17,5 @@ public class Monster
     public string Type { get; set; } = string.Empty;
 
     [Range(1, 30)]
-    public decimal Level { get; set; }
+    public int Level { get; set; }
 }
