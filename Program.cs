@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using csci340lab8.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<MonsterContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("MonsterContext") ?? throw new InvalidOperationException("Connection string 'MonsterContext' not found.")));
 
 var app = builder.Build();
 
